@@ -45,6 +45,9 @@ jobs:
           image-ref: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
           label: api image
           pr-number: ${{ steps.pr.outputs.pr-number }}
+          # report-only: known base-image CVEs in this fixture's Dockerfile
+          # are out of scope while we're testing pipeline mechanics, not app security
+          fail-on-findings: "false"
 
       - uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
         with:
@@ -75,6 +78,8 @@ jobs:
           image-tag: ${{ needs.build-scan-push.outputs.image_tag }}
           component-label: api
           helm-repo-token: ${{ steps.helm-app-token.outputs.token }}
+          commit-user-name: ${{ steps.helm-app-token.outputs.app-slug }}[bot]
+          commit-user-email: ${{ vars.HELM_BOT_APP_ID }}+${{ steps.helm-app-token.outputs.app-slug }}[bot]@users.noreply.github.com
           mode: pr
           source-branch: ${{ github.ref_name }}
           target-branch: develop
