@@ -1,0 +1,6 @@
+# Base-image tooling, not application dependencies. These versions live in the
+# python:3.13-slim image's bundled pip/ensurepip copies, which requirements.txt
+# cannot reach - the app's own setuptools/msgpack in site-packages are current
+# and scan clean.
+CVE-2025-47273
+GHSA-6v7p-g79w-8964
