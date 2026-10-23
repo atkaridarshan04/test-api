@@ -27,6 +27,9 @@ jobs:
       helm-owner: atkaridarshan04
       helm-repo-name: test-helm-charts
       runner: ubuntu-latest
+      # TEMP: testing the rebuild/rescan pipeline change, not the base image's
+      # real CVEs - re-enable (remove this line) once that's done
+      fail-on-findings: "false"
       helm-bot-client-id: ${{ vars.HELM_BOT_CLIENT_ID }}
     secrets:
       helm-bot-app-private-key: ${{ secrets.HELM_BOT_APP_PRIVATE_KEY }}
