@@ -1,3 +1,2 @@
 fastapi
 uvicorn
-urllib3>=2.8.0  # CVE-2026-97687, CVE-2026-97689 - transitive, pinned to force the fix

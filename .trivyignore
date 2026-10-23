@@ -4,3 +4,11 @@
 # and scan clean.
 CVE-2025-47273
 GHSA-6v7p-g79w-8964
+
+# urllib3 2.7.0, same as above - bundled inside pip's own vendored copy, not
+# site-packages. A requirements.txt pin to >=2.8.0 installs cleanly but
+# doesn't touch pip's vendored copy, so Trivy keeps flagging 2.7.0. Recheck
+# after the next python:3.13-slim bump ships a pip with urllib3>=2.8.0.
+# Added 2026-10-23 by @atkaridarshan04.
+CVE-2026-97687
+CVE-2026-97689
