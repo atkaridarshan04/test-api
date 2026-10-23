@@ -7,7 +7,7 @@ on:
 
 jobs:
   qa-release:
-    uses: atkaridarshan04/shared-ci-actions/.github/workflows/qa-release.yml@main
+    uses: atkaridarshan04/shared-ci-actions/.github/workflows/qa-release.yml@v1
     permissions:
       contents: read
       packages: write
